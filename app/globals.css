@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  /* Ink & parchment — a reading room at night, not a generic dashboard */
+  --ink: #14181f;
+  --ink-raised: #1c222b;
+  --ink-line: #2b323d;
+  --parchment: #efe7d8;
+  --parchment-dim: #a8a196;
+
+  /* Status colors carry meaning — used consistently for badges, spines, filters */
+  --status-want: #6b8cae;
+  --status-reading: #b8935b;
+  --status-done: #6b8f71;
+
+  --danger: #b06a5c;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-ink-line: var(--ink-line);
+  --color-parchment: var(--parchment);
+  --color-parchment-dim: var(--parchment-dim);
+  --color-status-want: var(--status-want);
+  --color-status-reading: var(--status-reading);
+  --color-status-done: var(--status-done);
+  --color-danger: var(--danger);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--status-reading);
+  color: var(--ink);
+}
+
+/* Visible keyboard focus everywhere — no outline: none anywhere in this project */
+:focus-visible {
+  outline: 2px solid var(--status-reading);
+  outline-offset: 2px;
+}
+
+.auth-input {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--ink-line);
+  background: var(--ink-raised);
+  color: var(--parchment);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+.auth-input::placeholder {
+  color: var(--parchment-dim);
+  opacity: 0.7;
+}
+
+@keyframes spine-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spine-wrap {
+  animation: spine-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
