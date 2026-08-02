@@ -2,8 +2,8 @@
 
 A quiet, personal space to log what you're reading — built for the Thumbstack MERN Stack Developer assignment.
 
-**Live demo:** _add your deployed Vercel URL here_
-**Repo:** _add your GitHub URL here_
+**Live demo:** https://personal-bookmanager.vercel.app
+**Repo:** https://github.com/sakshit10/personal-bookmanager
 
 ## What it does
 
